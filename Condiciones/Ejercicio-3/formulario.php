@@ -10,15 +10,15 @@
     <form action="index.php">
         <h1>Notas estudiantes</h1>
         <label for="">Ingrese la nota 1</label>
-        <input type="number" name="nota1" id="">
+        <input type="number" step="any" name="nota1" id="">
         <br>
         <br>
         <label for="">Ingrese la nota 2</label>
-        <input type="number" name="nota2" id="">
+        <input type="number" step="any" name="nota2" id="">
         <br>
         <br>
         <label for="">Ingrese la nota 3</label>
-        <input type="number" name="nota3" id="">
+        <input type="number" step="any" name="nota3" id="">
         <br>
         <input type="submit" value="Calcular">
     </form>
