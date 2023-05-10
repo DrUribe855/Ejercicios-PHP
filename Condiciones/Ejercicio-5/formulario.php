@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.php">
+    <form action="index.php" method="POST">
         <label for="">Ingrese el primer número</label>
         <input type="number" name="num1" id="">
         <br>

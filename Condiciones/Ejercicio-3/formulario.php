@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="index.php">
+    <form action="index.php" method="POST">
         <h1>Notas estudiantes</h1>
         <label for="">Ingrese la nota 1</label>
         <input type="number" step="any" name="nota1" id="">
