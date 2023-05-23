@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Wix Madefor Display', sans-serif;
+}
+
+.navegacion{
+    background-color: #198754;
+}
+/* 
+body{
+    background-color: #5ccb5f;
+} */
+
+form{
+    margin-top: 1em;
+}
+
+.container{
+    width: 100%;
+    padding: 3em 3em;
+}
+
+.container .title{
+    font-size: 3em;
+    font-weight: 500;
+    position: relative;
+}
+
+.container .title:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 2em;
+    background-color: #5ccb5f;
+}
+
+.container form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+form .user-details .input-box{
+    margin-bottom: 2em;
+    width: calc(100%/2 - 20px);
+}
+
+.user-details .input-box .details{
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    
+}
+
+.user-details .input-box input{
+    height: 2.1em;
+    width: 100%;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid black;
+    padding-left: 1em;
+    font-size: 1em;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.user-details .input-box input:focus{
+    border-color: #198754;
+    outline: none;
+    box-shadow: none;
+}
+
+form .button{
+    height: 3em;
+    width: 10em 0;
+    /* margin-left: 14em; */
+}
+
+form .button input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+}
+
+.categoria{
+    outline: none;
+    border: 1px solid black;
+    
+}
+
+.categoria:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+@media (max-width: 584px){
+    .container{
+        max-width: 100%;
+    }
+
+    form .user-details .input-box{
+        margin-bottom: 2em;
+        width: 100%;
+    }
+
+    .container form .user-details{
+        max-height: 35em;
+        overflow-y: scroll;
+    }
+
+    .user-details::-webkit-scrollbar{
+        width: 0;
+    }
+
+    
+}
+
+@media(max-width: 420px){
+    .container{
+        max-width: 100%;
+    }
+
+    .container .title{
+        font-size: 2em;
+    }
+
+}
+
+@media(max-width: 300px){
+    .container .title{
+        font-size: 1.5em;
+    }
+}

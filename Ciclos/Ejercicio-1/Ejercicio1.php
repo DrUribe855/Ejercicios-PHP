@@ -7,20 +7,14 @@
     <title>CICLOS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<body class="container">
-    <div class="mt-5">
-
-        <h2 class="pb-4">EJERCICIO 1 CICLOS PHP / Expendio De Naranjas</h2>
-        <button class="btn btn-outline-dark mb-3" onclick="location.href='Ejercicios.php'">REGRESAR</button>
-        <br>
-
+<body>
 <?php
     if(empty($_REQUEST)){
         ?>
             <form action="" method="POST">
-                <label for="num">INGRESE LA CANTIDAD DE CLIENTES</label>
-                <input for="text" class="form-control mb-3" name="num"></input>
-                <input type="submit" class="btn btn-outline-warning" name="submit" value="Enviar"></input>
+                <label class="mt-2 ms-2" for="num">Ingrese la cantidad de clientes</label>
+                <input class="form-control form-control-sm w-25 mt-3 ms-2 " for="text" class="form-control mb-3" name="num"></input>
+                <input class="mt-2 ms-2 btn btn-primary" type="submit" class="btn btn-outline-warning" name="submit" value="Enviar"></input>
             </form>
             
         <?php
@@ -34,15 +28,15 @@
             for($i=0; $i<$num; $i++){
                 ?>
 
-                Ingrese la cantidad del cliente <?php echo $i;?>
-                <input type="number" class="form-control" name="cantidad[]" value=""/>
+                <label class="mt-2 ms-2" for="">Ingrese la cantidad del cliente <?php echo $i+1;?> </label> 
+                <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="number" class="form-control" name="cantidad[]" value=""/>
 
                 <br>
                 <?php
             }
 
         ?>
-            <input type="submit" class="btn btn-outline-warning" value="Enviar"/>    
+            <input type="submit" class="mt-2 ms-2 btn btn-primary" value="Enviar"/>    
             
             </form>
 
@@ -59,7 +53,7 @@
                 $valorcompra=$cantidad*$valornaranja;
                 $descuento=$valorcompra*0.15;
                 $totalcliente=$valorcompra-$descuento;
-                echo "Tiene Descuento de 15%", '<br>';
+                echo "Obtiene descuento". '<br>';
                 echo "El cliente compro: ",$cantidad, " kilos de naranja.", '<br>';
                 echo "El valor de la compra fue: ",$valorcompra, " pesos.", '<br>';
                 echo "El valor del descuento fue: ",$descuento, " pesos.", '<br> ';

@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <title>Document</title>
 </head>
 <body>
     <form action="index.php" method="POST">
-        <select name="actividad">
+        <label class="mt-2 ms-2" for="">Seleccione la actividad realizada</label>
+        <select class="mt-2 ms-2 form-select form-control-sm w-25" name="actividad">
+            <option selected></option>
             <option value="1">Dormir</option>
             <option value="2">Sentado</option>
         </select>
         <br>
-        <label for="">Ingrese la cantidad de minutos</label>
-        <input type="number" step="any" name="minutos">
+        <label class="mt-2 ms-2" for="">Ingrese la cantidad de minutos</label>
+        <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="number" step="any" name="minutos">
         <br>
-        <input type="submit"  value="Calcular">
+        <input class="mt-2 ms-2 btn btn-primary" type="submit"  value="Calcular">
     </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

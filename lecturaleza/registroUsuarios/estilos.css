@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Wix Madefor Display', sans-serif;
+}
+
+.slider{
+    width: 75em;
+    padding: 0;
+    margin-top: 1em;
+    margin-left: 2em;
+}
+
+
+.segundo-login{
+    margin-left: 8em;
+}
+
+
+.user-details .input-box input{
+    height: 1.5em;
+    width: 100%;
+    margin-top: 10em;
+    outline: none;
+}
+
+.user-details .input-box input:focus{
+    border-color: #198754;
+}
+
+.imgRegistro1{
+    float: right;
+}
+
+.loginInicial{
+    margin-left: 2em;
+}
+
+.agroecologia{
+    color: #198754;
+}
+
+.inputRegistro, .input-box input{
+    border: 0;
+    border-bottom: 1px solid black;
+    
+}
+
+.inputRegistro:focus{
+    outline: none;
+    box-shadow: none;
+    border-bottom: 1px solid black;
+    
+}
+
+

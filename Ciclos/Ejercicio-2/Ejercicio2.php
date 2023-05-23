@@ -5,16 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
 <body>
     <?php
         if(empty($_REQUEST)){
     ?>
         <form action="" method="POST">
-            <label for="num">Ingrese la cantidad de estudiantes</label>
-            <input type="number" name="cantidad">
+            <label class="mt-2 ms-2" for="num">Ingrese la cantidad de estudiantes</label>
+            <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="number" name="cantidad">
             <br>
-            <input type="submit" value="Continuar">
+            <input class="mt-2 ms-2 btn btn-primary" type="submit" value="Continuar">
         </form>
     
     <?php
@@ -23,28 +25,27 @@
         ?>
 
         <form action="" method="POST">
-            <input type="text" name="cantidadEstudiantes" value="<?= $cantidadEstudiantes ?>">
+            <input type="hidden" name="cantidadEstudiantes" value="<?= $cantidadEstudiantes ?>">
             <?php
                 $cantidad = $_REQUEST['cantidad'];
                 for($i = 0; $i < $cantidad; $i++){
             ?>
             
-            <p>Ingrese la información del estudiante <?php echo $i;?></p>
+            <p class="mt-2 ms-2">Ingrese la información del estudiante <?php echo $i+1;?></p>
+            <p class="mt-2 ms-2">Código de estudiante</p>
+            <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="number" name="codigo[]">
             <br>
-            <p>Código de estudiante</p>
-            <input type="number" name="codigo[]">
+            <p class="mt-2 ms-2">Nombre del estudiante</p>
+            <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="text" name="nombre[]">
             <br>
-            <p>Nombre del estudiante</p>
-            <input type="text" name="nombre[]">
+            <p class="mt-2 ms-2">Nota 1</p>
+            <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="number" step="any" name="nota1[]">
             <br>
-            <p>Nota 1</p>
-            <input type="number" step="any" name="nota1[]">
+            <p class="mt-2 ms-2">Nota 2</p>
+            <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="number" step="any" name="nota2[]">
             <br>
-            <p>Nota 2</p>
-            <input type="number" step="any" name="nota2[]">
-            <br>
-            <p>Nota 3</p>
-            <input type="number" step="any" name="nota3[]">
+            <p class="mt-2 ms-2">Nota 3</p>
+            <input class="form-control form-control-sm w-25 mt-3 ms-2 " type="number" step="any" name="nota3[]">
             <br>
             <br>
 
@@ -52,7 +53,7 @@
                 }
             ?>
 
-            <input type="submit" value="Calcular">
+            <input class="mt-2 ms-2 btn btn-primary" type="submit" value="Calcular">
                 
         </form>
 
@@ -75,11 +76,12 @@
             }
             ?>
 
-            <p>Nombre del estudiante: <?= $nombre[$posicionPromedioMayor];?></p>
-            <p>Promedio: <?= $promedioMayor;?></p>
+            <p class="mt-2 ms-2">Nombre del estudiante: <?= $nombre[$posicionPromedioMayor];?></p>
+            <p class="mt-2 ms-2">Promedio: <?= $promedioMayor;?></p>
             <?php
         }
         ?>
-        
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>
