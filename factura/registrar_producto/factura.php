@@ -2,7 +2,9 @@
     $producto = $_REQUEST['nombre'];
     $precio = $_REQUEST['precioP'];
     $cantidad = $_REQUEST['cantidad'];
+    $recibido = $_REQUEST['recibido'];
     $total = $cantidad*$precio;
+    $devuelta = $recibido-$total;
     include_once("conexion4.php");
     $conexion4 -> query("insert into ventas(nombre, precio, cantidad, total) values ('$producto','$precio','$cantidad','$total')");
 ?>
@@ -44,10 +46,20 @@
                                 <input type="number" name="total" id="total" class="form_input" placeholder=" " value="<?php echo $total ?>" disabled>
                                 <label for="total" class="form_label">Total a pagar</label>
                                 <span class="form_line"></span>
-
+                            </div>
+                            <div class="form_group">
+                                <input type="number" name="recibido" id="recibido" class="form_input" placeholder=" " value="<?php echo $recibido ?>" disabled>
+                                <label for="recibido" class="form_label">Recibido</label>
+                                <span class="form_line"></span>
+                            </div>
+                            <div class="form_group">
+                                <input type="number" name="devuelta" id="devuelta" class="form_input" placeholder=" " value="<?php echo $devuelta ?>" disabled>
+                                <label for="devuelta" class="form_label">Devuelta</label>
+                                <span class="form_line"></span>
                             </div>
                         </div>
                 </form>
+                <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
             </article>
         </section>
     </main>

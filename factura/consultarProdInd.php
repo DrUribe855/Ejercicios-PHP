@@ -70,6 +70,8 @@
                         </div>
                         
                 </form>
+
+                <button href="principal.php"></button>
                 
     <?php }
         

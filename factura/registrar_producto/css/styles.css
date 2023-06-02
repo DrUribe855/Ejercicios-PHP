@@ -98,3 +98,7 @@ form{
     transition: transform .4s;
 }
 
+button a{
+    color: white;
+    text-decoration: none;
+}

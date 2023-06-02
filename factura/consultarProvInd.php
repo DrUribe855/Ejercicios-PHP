@@ -49,12 +49,20 @@
                             </div>
                             <div class="form_group">
                                 <input type="text" name="telefono" id="telefono" class="form_input" placeholder=" " value="<?php echo $row['telefono']; ?>" disabled>
+<<<<<<< HEAD
+                                <label for="telefono" class="form_label">Télefono</label>
+=======
                                 <label for="telefono" class="form_label">Costo</label>
+>>>>>>> 0b8876820adecbcb5287c7517a924dc7566b3043
                                 <span class="form_line"></span>
                             </div>
                             <div class="form_group">
                                 <input type="text" name="producto" id="producto" class="form_input" placeholder=" " value="<?php echo $row['producto']; ?>" disabled>
+<<<<<<< HEAD
+                                <label for="producto" class="form_label">Producto</label>
+=======
                                 <label for="producto" class="form_label">Precio</label>
+>>>>>>> 0b8876820adecbcb5287c7517a924dc7566b3043
                                 <span class="form_line"></span>
                             </div>
                         </div>

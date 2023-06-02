@@ -1,3 +1,7 @@
+<?php
+    include_once("conexion4.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +13,16 @@
     <title>Document</title>
 </head>
 <body>
-    <?php if(empty($_REQUEST)){
-        include_once("conexion4.php");
-        $consulta = $conexion4 -> query("select * from ventas");
-        }?>
         <main>
             <section>
                 <article class="position-absolute top-0 start-50 translate-middle-x">
-                    <h2 class="form_title mt-3">Proveedores</h2>
+                    <h2 class="form_title mt-3">REGISTRO VENTAS</h2>
+                    <form action="" method="POST">
+                        <input type="number" name="venta">
+                        <input type="submit" value="Consultar">
+                    </form>
                     <br>
-                    <table class="table ">
+                    <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th>ID venta</th>
@@ -30,9 +34,15 @@
                         </thead>
                         <tbody>
                             <?php 
+                            if(!empty($_POST['venta'])){
+                                $venta = $_POST['venta'];
+                                $consulta = $conexion4 -> query("SELECT * FROM ventas WHERE id_venta LIKE '%$venta%'");
+                            }else{
+                                $consulta = $conexion4 -> query("SELECT * FROM ventas");
+                            }
                                 while($row = $consulta -> fetch_array()){?>
                                     <tr>
-                                        <td><?php echo $row['id-venta']; ?></td>
+                                        <td><?php echo $row['id_venta']; ?></td>
                                         <td><?php echo $row['nombre']; ?></td>
                                         <td><?php echo $row['cantidad']; ?></td>
                                         <td><?php echo $row['precio']; ?></td>
@@ -43,6 +53,7 @@
                     </table>
                 </article>
             </section>
+            <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
         </main>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>

@@ -51,6 +51,7 @@
                         </div>
                         <input type="submit" value="Registrar" class="form_submit mt-5">
                     </form>
+                    <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
                 </article>
             </section>
         </main>

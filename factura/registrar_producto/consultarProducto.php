@@ -1,3 +1,7 @@
+<?php
+    include_once("conexion.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +13,20 @@
     <title>Document</title>
 </head>
 <body>
-
-    <?php if(empty($_REQUEST)){ ?>
-
         <main>
             
             <section class="position-absolute top-0 start-50 translate-middle-x">
-                <h2 class="form_title mt-3">Productos</h2>
+                <h2>PRODUCTOS</h2>
+                <center>
+                    <form action="" method="POST">
+                        <input type="number" placeholder="Ingrese el ID" autocomplete="off" name="buscar" class="form-control mt-4 mb-4">
+                        <input type="submit" value="Buscar" class="form-control btn btn-primary mb-4">
+    
+                    </form>
+                </center>
                 <br>
-                
-                <table class="table ">
+                <table class="table table-bordered">
+                    
                     <thead>
                         <th>ID</th>
                         <th>Nombre</th>
@@ -29,24 +37,30 @@
                     </thead>
                     <tbody>
                         <?php
-                            include_once("conexion.php");
-                            $consulta = $conexion -> query("select * from productos");
-    
-                            while($row = $consulta -> fetch_array()){ ?>
-                                <tr>
-                                    <td><?php echo $row['id']; ?></td>
-                                    <td><?php echo $row['nombre']; ?></td>
-                                    <td><?php echo $row['costo']; ?></td>
-                                    <td><?php echo $row['precio']; ?></td>
-                                    <td><?php echo $row['cant_inventario']; ?></td>
-                                    <td><?php echo $row['descripcion']; ?></td>
-                                </tr>
-                            <?php } ?>
+                        if(isset($_POST['buscar'])){
+                            $buscar = $_POST['buscar'];
+                            $consulta = $conexion -> query("SELECT * FROM productos WHERE id LIKE '%$buscar%' ORDER BY nombre");
+                            }else{
+                                $consulta = $conexion -> query("SELECT * FROM productos");
+                            }
+                            
+                            while($row = $consulta -> fetch_array()){ 
+                                $cod = $row['id'];    
+                            ?>
+                            <tr>
+                                <td><?php echo $row['id']; ?></td>
+                                <td><?php echo $row['nombre']; ?></td>
+                                <td><?php echo $row['costo']; ?></td>
+                                <td><?php echo $row['precio']; ?></td>
+                                <td><?php echo $row['cant_inventario']; ?></td>
+                                <td><?php echo $row['descripcion']; ?></td>
+                            </tr>
+                <?php } ?>
                     </tbody>
                 </table>
             </section>
-        </main>
-    <?php } ?>        
+            <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
+        </main>  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

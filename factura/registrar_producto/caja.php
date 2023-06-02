@@ -32,6 +32,7 @@
                         </div>
                         <input type="submit" value="Registrar" class="form_submit mt-5 me-1">
                     </form>
+                    <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
                 </article>
             </section>
         </main>
@@ -59,13 +60,19 @@
                                 <?php }  ?>
                             </div>
                             <div class="form_group">
-                                <input type="number" name="cantidad" id="cantidad" class="form_input" value="<?php echo $producto ?>" placeholder=" " required>
+                                <input type="number" name="cantidad" id="cantidad" class="form_input"  placeholder=" " required>
                                 <label for="cantidad" class="form_label">Cantidad:</label>
+                                <span class="form_line"></span>
+                            </div>
+                            <div class="form_group">
+                                <input type="number" name="recibido" id="recibido" class="form_input"  placeholder=" " required>
+                                <label for="recibido" class="form_label">Recibe:</label>
                                 <span class="form_line"></span>
                             </div>
                         </div>
                         <input type="submit" value="Registrar" class="form_submit mt-3">
                     </form>
+                    <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
                 </article>
             </section>
         </main>

@@ -1,0 +1,8 @@
+button a{
+    color: white;
+    text-decoration: none;
+}
+
+.container button{
+    margin: 2em;
+}

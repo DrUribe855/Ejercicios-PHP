@@ -17,37 +17,37 @@
                         <h2 class="form_title">Registro Productos</h2>
                         <div class="form_container">
                             <div class="form_group">
-                                <input type="number" name="id" id="id" class="form_input" placeholder=" ">
+                                <input type="number" name="id" id="id" class="form_input" placeholder=" " required>
                                 <label for="id" class="form_label">ID:</label>
                                 <span class="form_line"></span>
 
                             </div>
                             <div class="form_group">
-                                <input type="text" name="nombre" id="nombre" class="form_input" placeholder=" ">
+                                <input type="text" name="nombre" id="nombre" class="form_input" placeholder=" " required>
                                 <label for="nombre" class="form_label">Nombre:</label>
                                 <span class="form_line"></span>
 
                             </div>
                             <div class="form_group">
-                                <input type="number" name="costo" id="costo" class="form_input" placeholder=" ">
+                                <input type="number" name="costo" id="costo" class="form_input" placeholder=" " required>
                                 <label for="costo" class="form_label">Costo:</label>
                                 <span class="form_line"></span>
 
                             </div>
                             <div class="form_group">
-                                <input type="number" name="precio" id="precio" class="form_input" placeholder=" ">
+                                <input type="number" name="precio" id="precio" class="form_input" placeholder=" " required>
                                 <label for="precio" class="form_label">Precio:</label>
                                 <span class="form_line"></span>
 
                             </div>
                             <div class="form_group">
-                                <input type="number" name="inventario" id="inventario" class="form_input" placeholder=" ">
+                                <input type="number" name="inventario" id="inventario" class="form_input" placeholder=" " required>
                                 <label for="inventario" class="form_label">Cantidad Inventario:</label>
                                 <span class="form_line"></span>
 
                             </div>
                             <div class="form_group">
-                                <textarea name="descripcion" cols="50" rows="3" id="descripcion" class="form_input"></textarea>
+                                <textarea name="descripcion" cols="50" rows="3" id="descripcion" class="form_input"  required></textarea>
                                 <label for="descripcion" class="form_label">Descripción:</label>
                                 <span class="form_line"></span>
 
@@ -56,6 +56,7 @@
                         
                         <input type="submit" value="Registrar" class="form_submit">
                     </form>
+                    <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
             </section>
         </main>
     <?php }else if(isset($_REQUEST['id'])){
