@@ -36,7 +36,7 @@
                             <?php 
                             if(!empty($_POST['venta'])){
                                 $venta = $_POST['venta'];
-                                $consulta = $conexion4 -> query("SELECT * FROM ventas WHERE id_venta LIKE '%$venta%'");
+                                $consulta = $conexion4 -> query("SELECT * FROM ventas WHERE id_venta LIKE '$venta'");
                             }else{
                                 $consulta = $conexion4 -> query("SELECT * FROM ventas");
                             }
