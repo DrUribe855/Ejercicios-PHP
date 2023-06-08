@@ -1,15 +1,12 @@
 <?php
+    include_once("conexion.php");
     $producto = $_REQUEST['nombre'];
     $precio = $_REQUEST['precioP'];
     $cantidad = $_REQUEST['cantidad'];
     $recibido = $_REQUEST['recibido'];
     $total = $cantidad*$precio;
     $devuelta = $recibido-$total;
-    include_once("conexion4.php");
-    $consulta = $conexion4 -> query("select * from productos where nombre = '$producto'");
-    while($row = $consulta -> fetch_array()){
-        $cantidadInv = $row['cant_inventario'];
-    } ?>
+    include_once("conexion4.php");?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -59,14 +56,18 @@
                                         El dinero recibido es menor al total.
                                     </div>  
                                 <?php }else{ 
-                                    include_once("conexion4.php");
-                                    $conexion4 -> query("insert into ventas(nombre, precio, cantidad, total) values ('$producto','$precio','$cantidad','$total')"); ?>
-
-                                <div class="form_group">
-                                    <input type="number" name="devuelta" id="devuelta" class="form_input" placeholder=" " value="<?php echo $devuelta ?>" disabled>
-                                    <label for="devuelta" class="form_label">Devuelta</label>
-                                    <span class="form_line"></span>
-                                </div>
+                                    $consulta = $conexion4 -> query("select * from productos where nombre = '$producto'");
+                                    while($row = $consulta -> fetch_array()){
+                                        $cantidadInv = $row['cant_inventario'];
+                                    }
+                                    $nuevaCantidad = $cantidadInv-$cantidad; 
+                                    $conexion4 -> query("INSERT INTO ventas(nombre, precio, cantidad, total) values ('$producto','$precio','$cantidad','$total')"); 
+                                    $conexion ->query("UPDATE productos SET cant_inventario = '$nuevaCantidad' WHERE nombre = '$producto' ")?>
+                                    <div class="form_group">
+                                        <input type="number" name="devuelta" id="devuelta" class="form_input" placeholder=" " value="<?php echo $devuelta ?>" disabled>
+                                        <label for="devuelta" class="form_label">Devuelta</label>
+                                        <span class="form_line"></span>
+                                    </div>
                                 <?php } ?>
                                 
                             </div>

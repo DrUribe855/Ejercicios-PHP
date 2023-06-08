@@ -1,3 +1,8 @@
+<?php
+    include_once("conexion.php");
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +23,7 @@
                         <div class="form_group">
                                 <select name="producto" id="producto" class="form_input" placeholder=" " required>
                                     <?php 
-                                        include_once("conexion.php");
+                                        // include_once("conexion.php");
                                         $productos = $conexion->query("select * from productos");
                                         while($row = $productos->fetch_array()){ ?>
                                             <option value="<?php echo $row['nombre']; ?>"><?php echo $row['nombre']; ?></option>
@@ -30,7 +35,7 @@
 
                             </div>
                             <div class="form_group">
-                                <input type="number" name="cantidad" id="cantidad" class="form_input"  placeholder=" " required>
+                                <input type="number" name="cantidad" id="cantidad" class="form_input" placeholder=" " required>
                                 <label for="cantidad" class="form_label">Cantidad:</label>
                                 <span class="form_line"></span>
                             </div>
@@ -52,44 +57,57 @@
                         <h2 class="form_title">CAJA</h2>
                         <div class="form_container">
                             <div class="form_group">
-                                <input type="text" name="nombre" id="nombre" class="form_input" value="<?php echo "$producto"; ?>" placeholder=" ">
+                                <input type="text" name="nombre" id="nombre" class="form_input" value="<?php echo "$producto"; ?>" placeholder=" " readonly>
                                 <label for="nombre" class="form_label">Producto:</label>
                                 <span class="form_line"></span>
                             </div>
-                            <div class="form_group">
-                                <?php
-                                    include_once("conexion.php");
-                                    $consulta = $conexion -> query("SELECT * FROM productos WHERE nombre = '$producto'");
-                                    while($row = $consulta -> fetch_array()){
-                                        $cantidadInv = $row['cant_inventario'];
-                                        $precio = $row['precio'];
-                                    ?>
-                                    <input type="number" value="<?php echo $row['precio']; ?>" id="precio" name="precioP" class="form_input">
-                                    <label for="precio" class="form_label">Precio</label>
+                            <?php
+                                $consulta = $conexion -> query("SELECT * FROM productos WHERE nombre = '$producto'");
+                                while($row = $consulta -> fetch_array()){
+                                    $cantidadInv = $row['cant_inventario'];
+                                    $precio = $row['precio'];
+                                }
+                                if($cantidad <= 0){ ?>
+
+                                    <div class="alert alert-danger mt-3" role="alert">
+                                        Debe ingresar una cantidad mayor a 0.
+                                    </div>
+                            <?php }else{ 
+                                    if($cantidad > $cantidadInv){ ?>
+                                    <div class="alert alert-danger mt-3" role="alert">
+                                        No hay suficiente cantidad en el inventario. Cantidad disponible: <?php echo $cantidadInv; ?>
+                                    </div>
+                               <?php }else{ ?>
+                                <div class="form_group">
+                                        <input type="number" value="<?php echo $precio; ?>" id="precio" name="precioP" class="form_input" readonly>
+                                        <label for="precio" class="form_label">Precio</label>
+                                        <span class="form_line"></span>
+                                </div>
+                                <div class="form_group">
+                                    <input readonly type="number" name="cantidad" id="cantidad" class="form_input"  placeholder=" " value="<?php echo $cantidad; ?>" required>
+                                    <label for="cantidad" class="form_label">Cantidad:</label>
                                     <span class="form_line"></span>
-                                    <?php } ?>
-                            </div>
-                            <div class="form_group">
-                                <input readonly type="number" name="cantidad" id="cantidad" class="form_input"  placeholder=" " value="<?php echo $cantidad; ?>" required>
-                                <label for="cantidad" class="form_label">Cantidad:</label>
-                                <span class="form_line"></span>
-                            </div>
-                            <div class="form_group">
+                                </div>
+                                <div class="form_group">
+                                    <?php $total = $cantidad*$precio ?>
+                                    <input type="number" name="total" id="total" class="form_input"  placeholder=" " value="<?php echo $total ?>" required>
+                                    <label for="total" class="form_label">Total a pagar</label>
+                                    <span class="form_line"></span>
+                                </div>
+                                <div class="form_group">
+                                    <input type="number" name="recibido" id="recibido" class="form_input"  placeholder=" " required>
+                                    <label for="recibido" class="form_label">Recibe:</label>
+                                    <span class="form_line"></span>
+                                </div>
+
+                                <input type="submit" value="Registrar" class="form_submit mt-3">
+
+                               <?php } ?>
                                 
-                                <?php 
-                                $total = $cantidad*$precio ?>
-                                <input type="number" name="total" id="total" class="form_input"  placeholder=" " value="<?php echo $total ?>" required>
-                                <label for="total" class="form_label">Total a pagar</label>
-                                <span class="form_line"></span>
-                            </div>
-                            <div class="form_group">
-                                <input type="number" name="recibido" id="recibido" class="form_input"  placeholder=" " required>
-                                <label for="recibido" class="form_label">Recibe:</label>
-                                <span class="form_line"></span>
-                            </div>
-                            
+                            <?php } ?> 
+
+
                         </div>
-                        <input type="submit" value="Registrar" class="form_submit mt-3">
                     </form>
                     <button class="btn btn-primary"><a href="principal.php">Volver</a></button>
                     <input type="hidden" name="" value="">

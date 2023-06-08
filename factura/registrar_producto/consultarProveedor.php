@@ -27,25 +27,27 @@
                         <th>Direccion</th>
                         <th>Télefono</th>
                         <th>Producto</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
                     </thead>
                     <tbody>
                         <?php
                            if(!empty($_POST['telefono'])){
                                 $telefono = $_POST['telefono'];
-                                $consulta = $conexion2 -> query("SELECT * FROM proveedores WHERE telefono LIKE '%$telefono%'");
+                                $consulta = $conexion2 -> query("SELECT * FROM proveedores WHERE telefono = '%$telefono%'");
                            }else{
                                 $consulta = $conexion2 -> query("SELECT * FROM proveedores");
                            }
 
-                        //    $telefono = '';
                            while($row = $consulta -> fetch_array()){
-                                // $cod = $row['nombre'];
                             ?>
                                 <tr>
                                     <td><?php echo $row['nombre']; ?></td>
                                     <td><?php echo $row['direccion']; ?></td>
                                     <td><?php echo $row['telefono']; ?></td>
                                     <td><?php echo $row['producto']; ?></td>
+                                    <td><a href="modificarProveedor.php?telefono=<?php echo $row['telefono']; ?>"  class="btn btn-success">Modificar</a></td>
+                                    <td><a href="eliminarProveedor.php?telefono=<?php echo $row['telefono']; ?>" class="btn btn-danger">Eliminar</a></td>
                                 </tr>
                             <?php } ?>
                     </tbody>
