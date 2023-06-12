@@ -34,27 +34,37 @@
                         <th>Precio</th>
                         <th>Cantidad inventario</th>
                         <th>Descripcion</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
                     </thead>
                     <tbody>
                         <?php
-                        if(isset($_POST['buscar'])){
+                        if(!empty($_POST['buscar'])){
                             $buscar = $_POST['buscar'];
                             $consulta = $conexion -> query("SELECT * FROM productos WHERE id LIKE '%$buscar%' ORDER BY nombre");
                             }else{
                                 $consulta = $conexion -> query("SELECT * FROM productos");
                             }
                             
-                            while($row = $consulta -> fetch_array()){ 
-                                $cod = $row['id'];    
-                            ?>
-                            <tr>
-                                <td><?php echo $row['id']; ?></td>
-                                <td><?php echo $row['nombre']; ?></td>
-                                <td><?php echo $row['costo']; ?></td>
-                                <td><?php echo $row['precio']; ?></td>
-                                <td><?php echo $row['cant_inventario']; ?></td>
-                                <td><?php echo $row['descripcion']; ?></td>
-                            </tr>
+                            while($row = $consulta -> fetch_array()){ ?>  
+                                <tr>
+                                    <td><?php echo $row['id']; ?></td>
+                                    <td><?php echo $row['nombre']; ?></td>
+                                    <td><?php echo $row['costo']; ?></td>
+                                    <td><?php echo $row['precio']; ?></td>
+                                    <td><?php echo $row['cant_inventario']; ?></td>
+                                    <td><?php echo $row['descripcion']; ?></td>
+                                    <td><a href="modificarProducto.php?
+                                    id=<?php echo $row['id'];?> & 
+                                    nombres=<?php echo $row['nombre'];?> &
+                                    costos=<?php echo $row['costo'];?> &
+                                    precios=<?php echo $row['precio'];?> &
+                                    inventario=<?php echo $row['cant_inventario'];?> &
+                                    descripciones=<?php echo $row['descripcion'];?>
+                                    ">Modificar</a></td>
+                                    <td><a href="eliminarProducto.php?
+                                    id=<?php echo $row['id'];?>">Eliminar</a></td>
+                                </tr>
                 <?php } ?>
                     </tbody>
                 </table>

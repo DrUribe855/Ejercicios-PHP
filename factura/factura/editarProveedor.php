@@ -7,7 +7,7 @@
     $telefono = ($_POST['telefono']);
     $producto = ($_POST['producto']);
 
-    $conexion2 -> query("UPDATE proveedores set nombre='$nombre', direccion='$direccion', telefono='$telefono', producto='$producto' ");
+    $conexion2 -> query("UPDATE proveedores set nombre='$nombre', direccion='$direccion', telefono='$telefono', producto='$producto' WHERE telefono='$telefono' ");
     header("Location: consultarProveedor.php");
 
 ?>

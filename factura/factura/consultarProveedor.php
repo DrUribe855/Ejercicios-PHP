@@ -46,7 +46,11 @@
                                     <td><?php echo $row['direccion']; ?></td>
                                     <td><?php echo $row['telefono']; ?></td>
                                     <td><?php echo $row['producto']; ?></td>
-                                    <td><a href="modificarProveedor.php?telefono=<?php echo $row['telefono']; ?>"  class="btn btn-success">Modificar</a></td>
+                                    <td><a href="modificarProveedor.php?
+                                    telefonoProv=<?php echo $row['telefono'];?> & 
+                                    nombreProv=<?php echo $row['nombre']; ?> & 
+                                    direccionProv=<?php echo $row['direccion'];?> &
+                                    productos=<?php echo $row['producto']; ?>"  class="btn btn-success">Modificar</a></td>
                                     <td><a href="eliminarProveedor.php?telefono=<?php echo $row['telefono']; ?>" class="btn btn-danger">Eliminar</a></td>
                                 </tr>
                             <?php } ?>

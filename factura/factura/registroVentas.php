@@ -30,6 +30,7 @@
                                 <th>Cantidad</th>
                                 <th>Precio</th>
                                 <th>Total</th>
+                                <th>Eliminar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +48,7 @@
                                         <td><?php echo $row['cantidad']; ?></td>
                                         <td><?php echo $row['precio']; ?></td>
                                         <td><?php echo $row['total']; ?></td>
+                                        <td><a href="eliminarVenta.php?id=<?php echo $row['id_venta']; ?>">Eliminar</a></td>
                                     </tr>
                                <?php }?>
                         </tbody>
