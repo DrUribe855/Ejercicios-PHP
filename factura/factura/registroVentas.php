@@ -1,5 +1,6 @@
 <?php
     include_once("conexion4.php");
+    $totalVentas = 0;
 ?>
 
 <!DOCTYPE html>
@@ -31,6 +32,7 @@
                                 <th>Precio</th>
                                 <th>Total</th>
                                 <th>Eliminar</th>
+                                <th>Estado</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,12 +49,22 @@
                                         <td><?php echo $row['nombre']; ?></td>
                                         <td><?php echo $row['cantidad']; ?></td>
                                         <td><?php echo $row['precio']; ?></td>
-                                        <td><?php echo $row['total']; ?></td>
+                                        <td><?php echo $row['total'];?></td>
+                                        <?php $estado = $row['estado'];
+                                            if($estado == "activo"){
+                                                $totalVentas = $totalVentas+ $row['total'];
+                                            }
+                                        ?>
+                                                                                
+                                        <td><a href="editarVenta.php?
+                                        id=<?php echo $row['id_venta'];?> &
+                                        estado=<?php echo $row['estado']; ?>" class="btn btn-primary"><?php echo $estado ?></a></td>
                                         <td><a href="eliminarVenta.php?id=<?php echo $row['id_venta']; ?>">Eliminar</a></td>
                                     </tr>
                                <?php }?>
                         </tbody>
                     </table>
+                    <h3>Total de ventas: <?php echo $totalVentas; ?></h3>
                 </article>
             </section>
             <button class="btn btn-primary"><a href="principal.php">Volver</a></button>

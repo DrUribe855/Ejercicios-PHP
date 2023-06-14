@@ -99,8 +99,9 @@
                                     <label for="recibido" class="form_label">Recibe:</label>
                                     <span class="form_line"></span>
                                 </div>
+                                <input type="text" name="estado" value="activo" readonly>
 
-                                <input type="submit" value="Registrar" class="form_submit mt-3">
+                                <input type="submit" value="Registrar" class="form_submit mt-3" hidden>
 
                                <?php } ?>
                                 

@@ -4,6 +4,7 @@
     $precio = $_REQUEST['precioP'];
     $cantidad = $_REQUEST['cantidad'];
     $recibido = $_REQUEST['recibido'];
+    $estado = $_REQUEST['estado'];
     $total = $cantidad*$precio;
     $devuelta = $recibido-$total;
     include_once("conexion4.php");?>
@@ -61,7 +62,7 @@
                                         $cantidadInv = $row['cant_inventario'];
                                     }
                                     $nuevaCantidad = $cantidadInv-$cantidad; 
-                                    $conexion4 -> query("INSERT INTO ventas(nombre, precio, cantidad, total) values ('$producto','$precio','$cantidad','$total')"); 
+                                    $conexion4 -> query("INSERT INTO ventas(nombre, precio, cantidad, total, estado) values ('$producto','$precio','$cantidad','$total','$estado')"); 
                                     $conexion ->query("UPDATE productos SET cant_inventario = '$nuevaCantidad' WHERE nombre = '$producto' ")?>
                                     <div class="form_group">
                                         <input type="number" name="devuelta" id="devuelta" class="form_input" placeholder=" " value="<?php echo $devuelta ?>" disabled>

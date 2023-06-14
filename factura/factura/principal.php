@@ -11,12 +11,12 @@
 <body>
     <main>
         <section class="container">
-           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/registroProducto.php">Registrar producto</a></button>
-           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/registroProveedor.php">Registrar Proveedor</a></button>
-           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/consultarProducto.php">Consultar Producto</a></button>
-           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/consultarProveedor.php">Consultar Proveedor</a></button>
-           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/caja.php">Caja</a></button>
-           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/registroVentas.php">Registro ventas</a></button>
+           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/factura/registroProducto.php">Registrar producto</a></button>
+           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/factura/registroProveedor.php">Registrar Proveedor</a></button>
+           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/factura/consultarProducto.php">Consultar Producto</a></button>
+           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/factura/consultarProveedor.php">Consultar Proveedor</a></button>
+           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/registrar_producto/factura/caja.php">Caja</a></button>
+           <button class="btn btn-primary"><a href="http://localhost/inicio-php/factura/factura/registroVentas.php">Registro ventas</a></button>
         </section>
     </main>
 
